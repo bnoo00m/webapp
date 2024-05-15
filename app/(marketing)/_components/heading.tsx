@@ -9,7 +9,7 @@ export const Heading = () =>{
                 Your ideas, documents and plans are unified. Welcome to <span 
                 className="underline">Flowi</span>
              </h1>
-             <h3 className="text-base sm:text-xl md:text-2xl font-medium">
+             <h3 className="text-base sm:text-l md:text-xl font-medium">
                 Flowy is a cloud workspace where <br />
                 your ideas become action.
              </h3>
