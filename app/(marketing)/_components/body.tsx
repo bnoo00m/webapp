@@ -1,16 +1,27 @@
+import Image from "next/image";
+
 export const Body = () =>{
     return(
         <div className="space-y-4">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold">
                 Why choose us
             </h1>
-            <h3 className="text-sm sm:text-lg md:text-xl font-medium">
+            <h3 className="text-sm sm:text-lg md:text-xl font-normal">
                 By using Flowi you obtain true freedom. <br />
                 No ads, no limitations, free forever!
             </h3>
             <div className="sm:md:max-w-lg md:max-w-5xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4
-                lg:gap-x-[50px] py-10">
-                    <div className="flex h-full w-full flex-col items-center lg:items-start md:gap-y-3 lg:gap-y-4">
+                lg:gap-x-[50px] gap-y-12 lg:gap-y-14 py-10">
+                    <div className="flex h-full w-full flex-col items-center md:gap-y-3 lg:gap-y-4">
+                        <div className="mb-2">
+                            <Image
+                                src ="/pinpoint.png"
+                                height = "48"
+                                width="32"
+                                className="object-contain dark:hidden"
+                                alt="Globe"
+                            />
+                        </div>
                         <h2 className="text-l sm:text-xl md:text-2xl font-semibold ">
                             Work anytime, anywhere
                         </h2 >
@@ -19,7 +30,16 @@ export const Body = () =>{
                             automaticly synced and stored on our servers.
                         </p>
                     </div>
-                    <div className="flex h-full w-full flex-col items-center lg:items-start md:gap-y-3 lg:gap-y-4">
+                    <div className="flex h-full w-full flex-col items-center md:gap-y-3 lg:gap-y-4">
+                        <div className="mb-2">
+                            <Image
+                                src ="/binocular.png"
+                                height = "48"
+                                width="48"
+                                className="object-contain dark:hidden"
+                                alt="Globe"
+                            />
+                        </div>
                         <h2 className="text-l sm:text-xl md:text-2xl font-semibold">
                             Expand possibilities
                         </h2>
@@ -28,7 +48,16 @@ export const Body = () =>{
                             useful by adding text, images,audio etc.
                         </p>
                     </div>
-                    <div className="flex h-full w-full flex-col items-center lg:items-start md:gap-y-3 lg:gap-y-4">
+                    <div className="flex h-full w-full flex-col items-center md:gap-y-3 lg:gap-y-4">
+                        <div className="mb-2">
+                            <Image
+                                src ="/organize.png"
+                                height = "48"
+                                width="48"
+                                className="object-contain dark:hidden"
+                                alt="Globe"
+                            />
+                        </div>
                         <h2 className="text-l sm:text-xl md:text-2xl font-semibold">
                             Organize your workflow
                         </h2>
@@ -37,7 +66,16 @@ export const Body = () =>{
                             to get things done more easily.
                         </p>
                     </div>
-                    <div className="flex h-full w-full flex-col items-center lg:items-start md:gap-y-3 lg:gap-y-4">
+                    <div className="flex h-full w-full flex-col items-center md:gap-y-3 lg:gap-y-4">
+                        <div className="mb-2">
+                            <Image
+                                src ="/no-ads.png"
+                                height = "48"
+                                width="48"
+                                className="object-contain dark:hidden"
+                                alt="Globe"
+                            />
+                        </div>
                         <h2 className="text-l sm:text-xl md:text-2xl font-semibold">
                             Zero Ads
                         </h2>
