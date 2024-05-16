@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 
 export const Footer = () =>{
     return (
-        <div className="flex items-center w-full p-6 pg-background z-50 bg-[#F9F6F2] dark:bg-[#1F1F1F]">
+        <div className="flex items-center w-full p-6 pg-background bg-[#F9F6F2] dark:bg-[#1F1F1F]">
             <div className="md:ml-auto w-full justify-between
             md:justify-end flex items-center gap-x-2
             text-muted-foreground">

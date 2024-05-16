@@ -21,6 +21,13 @@ export const Body = () =>{
                                 className="object-contain dark:hidden"
                                 alt="Globe"
                             />
+                            <Image
+                                src ="/pinpoint-dark.png"
+                                height = "48"
+                                width="32"
+                                className="object-contain hidden dark:block"
+                                alt="Globe"
+                            />
                         </div>
                         <h2 className="text-l sm:text-xl md:text-2xl font-semibold ">
                             Work anytime, anywhere
@@ -37,6 +44,13 @@ export const Body = () =>{
                                 height = "48"
                                 width="48"
                                 className="object-contain dark:hidden"
+                                alt="Globe"
+                            />
+                            <Image
+                                src ="/binocular-dark.png"
+                                height = "48"
+                                width="48"
+                                className="object-contain hidden dark:block"
                                 alt="Globe"
                             />
                         </div>
@@ -57,6 +71,13 @@ export const Body = () =>{
                                 className="object-contain dark:hidden"
                                 alt="Globe"
                             />
+                            <Image
+                                src ="/organize-dark.png"
+                                height = "48"
+                                width="48"
+                                className="object-contain hidden dark:block"
+                                alt="Globe"
+                            />
                         </div>
                         <h2 className="text-l sm:text-xl md:text-2xl font-semibold">
                             Organize your workflow
@@ -73,6 +94,13 @@ export const Body = () =>{
                                 height = "48"
                                 width="48"
                                 className="object-contain dark:hidden"
+                                alt="Globe"
+                            />
+                            <Image
+                                src ="/no-ads-dark.png"
+                                height = "48"
+                                width="48"
+                                className="object-contain hidden dark:block"
                                 alt="Globe"
                             />
                         </div>
