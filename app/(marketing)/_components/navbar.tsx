@@ -5,8 +5,10 @@ import { cn } from "@/lib/utils";
 import { Logo } from "./logo";
 import { ModeToggle } from "@/components/modetoggle";
 import { useConvexAuth } from "convex/react";
-import { SignInButton } from "@clerk/clerk-react";
+import { SignInButton, SignOutButton, SignUpButton, UserButton } from "@clerk/clerk-react";
 import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
+import Link from "next/link";
 
 export const Navbar = () => {
     const { isAuthenticated, isLoading } = useConvexAuth();
@@ -22,21 +24,37 @@ export const Navbar = () => {
             <div className="md:ml-auto md:justify-end justify-between w-full
             flex items-center gap-x-4">
                 {isLoading && (
-                    <p>Loading...</p>
+                    <Spinner />
                 )}
                 {!isAuthenticated && !isLoading &&(
                     <>
-                        <SignInButton mode="modal">
-                            <Button variant="default" className="bg-green-600 dark:bg-white">
+                        <SignUpButton mode="modal">
+                            <Button variant="default" className="bg-green-600 dark:bg-white
+                                transition-all ease-in-out hover:-translate-y-1 duration-300">
                                 Register
                             </Button>
-                        </SignInButton>
+                        </SignUpButton>
                         <SignInButton mode="modal">
-                            <Button variant="outline" className="border-black dark:border-white">
+                            <Button variant="outline" className="border-black dark:border-white
+                                transition-all ease-in-out hover:-translate-y-1 hover:shadow-lg duration-300">
                                 Log in
                             </Button>
                         </SignInButton>
                     </>
+                )}
+
+                {isAuthenticated && !isLoading &&(
+                    <>
+                        <Button variant="ghost" asChild>
+                            <Link href="/documents">
+                                Enter Flowi
+                            </Link>
+                        </Button>
+                        <UserButton
+                            afterSignOutUrl="/"
+                        />
+                    </>
+                    
                 )}
                 <ModeToggle />
             </div>
