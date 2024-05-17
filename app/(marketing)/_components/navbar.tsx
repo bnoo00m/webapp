@@ -35,8 +35,8 @@ export const Navbar = () => {
                             </Button>
                         </SignUpButton>
                         <SignInButton mode="modal">
-                            <Button variant="outline" className="border-black dark:border-white
-                                transition-all ease-in-out hover:-translate-y-1 hover:shadow-lg duration-300">
+                            <Button variant="outline" className="border-2 bg-transparent border-black dark:border-white
+                                transition-all ease-in-out hover:-translate-y-1 duration-300">
                                 Log in
                             </Button>
                         </SignInButton>
