@@ -13,19 +13,19 @@ export const Logo = () =>{
         <div className="hidden md:flex items-center gap-x-2">
             <Image
                 src="/fav.svg"
-                height = "50"
-                width="50"
+                height = "42"
+                width="42"
                 alt="Logo"  
                 className="dark:hidden"         
             />
             <Image
                 src="/favblack.svg"
-                height = "50"
-                width="50"
+                height = "42"
+                width="42"
                 alt="Logo"  
                 className="hidden dark:block"         
             />
-            <p className={cn("text-2xl sm:text-3xl md:text-4xl font-bold",font.className)}>
+            <p className={cn("text-3xl font-bold",font.className)}>
                 Flowi
             </p>
         </div>

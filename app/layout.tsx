@@ -8,7 +8,7 @@ import { ConvexClientProvider } from "@/components/providers/convex-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Flowi",
+  title: "The perfect workspace, where all your desires and needs are met - Flowi",
   description: "The perfect workspace, where all your desires and needs are met",
   icons:{
     icon:[

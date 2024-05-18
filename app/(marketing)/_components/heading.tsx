@@ -19,7 +19,7 @@ export const Heading = () =>{
                your ideas become action.
             </h3>
             {isAuthenticated &&(
-               <Button asChild>
+               <Button asChild size="lg">
                   <Link href="/documents">
                      Enter Flowi
                   </Link>
@@ -27,7 +27,7 @@ export const Heading = () =>{
             )}
             {!isAuthenticated &&(
                <SignUpButton mode="modal">
-                  <Button>
+                  <Button size="lg">
                      Get Flowi free
                   </Button>
                </SignUpButton>

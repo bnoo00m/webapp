@@ -15,7 +15,7 @@ export const Navbar = () => {
     const scrolled = useScrollTop();
     return(
         <div className={cn(
-            "z-50 bg-[#F9F6F2] dark:bg-[#1F1F1F] fixed top-0 flex items-center w-full p-5",
+            "z-50 bg-[#f7f2ec] dark:bg-[#1F1F1F] fixed top-0 flex items-center w-full p-4",
             scrolled && "border-b shadow-sm"
         )}>
             <div className="px-4">
@@ -35,7 +35,7 @@ export const Navbar = () => {
                             </Button>
                         </SignUpButton>
                         <SignInButton mode="modal">
-                            <Button variant="outline" className="border-2 bg-transparent border-black dark:border-white
+                            <Button variant="ghost" size="sm" className=" bg-transparent border-black dark:border-white
                                 transition-all ease-in-out hover:-translate-y-1 duration-300">
                                 Log in
                             </Button>
