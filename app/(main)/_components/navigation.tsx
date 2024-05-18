@@ -1,20 +1,27 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ChevronsLeft, MenuIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ElementRef, useRef, useState, useEffect } from "react";
 import { useMediaQuery } from "usehooks-ts";
+import { useUser } from "@clerk/clerk-react";
+import Image from "next/image";
+import UserItem from "./user-item";
+
 
 export const Navigation = () => {
     const pathname = usePathname();
     const isSmallScreen = useMediaQuery("(max-width: 768px)");
-    
+
     const isResizingRef = useRef(false);
     const sidebarRef = useRef<ElementRef<"aside">>(null);
     const navbarRef = useRef<ElementRef<"div">>(null);
     const [isResetting, setIsResetting] = useState(false);
     const [isCollapsed, setIsCollapsed] = useState(isSmallScreen);
+
+    const {user} = useUser();
 
     useEffect(() => {
         if (isSmallScreen) {
@@ -24,6 +31,11 @@ export const Navigation = () => {
         }
     }, [isSmallScreen]);
 
+    useEffect(() => {
+        if (isSmallScreen) {
+            collapse();
+        }
+    }, [pathname, isSmallScreen]);
     const handleMouseDown = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>
     ) => {
@@ -84,9 +96,10 @@ export const Navigation = () => {
         }
     }
 
-
     return (
+        
         <>
+            
             <aside
                 ref={sidebarRef}
                 className={cn(
@@ -95,6 +108,15 @@ export const Navigation = () => {
                     isSmallScreen && "w-0"
                 )}
             >
+                <div className="flex justify-left pl-4 pt-4">
+                    <Image
+                        src="/fav.svg"
+                        alt="logo"
+                        layout="fixed"
+                        width="24"
+                        height="24"
+                    />
+                </div>
                 <div
                     onClick={collapse}
                     role="button"
@@ -103,12 +125,13 @@ export const Navigation = () => {
                         isSmallScreen && "opacity-100"
                     )}
                 >
-                    <ChevronsLeft className="h-6 w-6 " />
+                    <ChevronsLeft />
                 </div>
-                <div>
-                    <p>Action items</p>
+                
+                <div className="p-2 pb-2">
+                    <UserItem />
                 </div>
-                <div className="mt-4">
+                <div className="p-4 pt-2">
                     <p>Documents</p>
                 </div>
                 <div
