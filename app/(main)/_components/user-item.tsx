@@ -12,6 +12,7 @@ import{
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
+    DropdownMenuDestructiveItem,
 } from "@/components/ui/dropdown-menu";
 
 import { SignOutButton, useUser } from "@clerk/clerk-react";
@@ -60,11 +61,11 @@ const UserItem = () => {
                 <DropdownMenuItem className="text-muted-foreground">
                     Settings
                 </DropdownMenuItem>
-                <DropdownMenuItem className="text-muted-foreground">
+                <DropdownMenuDestructiveItem className="text-muted-foreground ">
                     <SignOutButton>
                         Sign out
                     </SignOutButton>
-                </DropdownMenuItem>
+                </DropdownMenuDestructiveItem>
             </DropdownMenuContent>        
         </DropdownMenu>
      );

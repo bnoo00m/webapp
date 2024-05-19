@@ -2,18 +2,24 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { ChevronsLeft, MenuIcon } from "lucide-react";
+import { ChevronsLeft, MenuIcon, PlusCircle, Search } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { ElementRef, useRef, useState, useEffect } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { useUser } from "@clerk/clerk-react";
 import Image from "next/image";
 import UserItem from "./user-item";
+import { useMutation, useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import { Item } from "./item";
+import { toast } from "sonner";
 
 
 export const Navigation = () => {
     const pathname = usePathname();
     const isSmallScreen = useMediaQuery("(max-width: 768px)");
+    const documents = useQuery(api.documents.get);
+    const create = useMutation(api.documents.create);
 
     const isResizingRef = useRef(false);
     const sidebarRef = useRef<ElementRef<"aside">>(null);
@@ -96,6 +102,18 @@ export const Navigation = () => {
         }
     }
 
+    const handleCreate = () => {
+        const promise = create({
+            title: "Untitled",
+        })
+
+        toast.promise(promise, {
+            loading: "Creating a page...",
+            success: "Page created!",
+            error: "Failed to create page",
+        })
+    };
+
     return (
         
         <>
@@ -130,9 +148,22 @@ export const Navigation = () => {
                 
                 <div className="p-2 pb-2">
                     <UserItem />
+                    <Item
+                        label="Search"
+                        icon={Search}
+                        isSearch
+                        onClick={() => {}}
+                    />
+                    <Item
+                    onClick={handleCreate}
+                    label="New page"
+                    icon={PlusCircle}
+                />
                 </div>
                 <div className="p-4 pt-2">
-                    <p>Documents</p>
+                    {documents?.map((document) => (
+                        <p key={document._id}>{document.title}</p>
+                    ))}
                 </div>
                 <div
                     onMouseDown={handleMouseDown}
