@@ -1,5 +1,6 @@
 "use client";
 
+import { Skeleton } from "@/components/ui/skeleton";
 import { Id } from "@/convex/_generated/dataModel";
 import { cn } from "@/lib/utils";
 import { ChevronDown, ChevronRight, LucideIcon } from "lucide-react";
@@ -20,6 +21,13 @@ interface ItemProps {
 export const Item = (
     {id, label, onClick, icon:Icon, active, documentIcon, isSearch, level= 0, onExpand, expanded }: ItemProps
 ) => {
+    const handleExpand = (
+        event: React.MouseEvent<HTMLDivElement, MouseEvent>
+    ) => {
+        event.stopPropagation();
+        onExpand?.();
+    }
+
     const ChevronIcon = expanded ? ChevronDown : ChevronRight;
 
 
@@ -31,13 +39,14 @@ export const Item = (
             style={{
                 paddingLeft: level ? `${(level * 10) + 5}px` : "5px"
             }}
-            className={cn("group min-h-[27px] text-sm py-2 pr-3 w-full hover:bg-primary/5 flex items-center rounded-md text-muted-foreground font-medium",active && "bg-primary/5")}
+            className={cn("group min-h-[25px] text-sm py-2 pr-3 w-full hover:bg-primary/5 flex items-center rounded-md text-muted-foreground font-medium",active && "bg-primary/5")}
         >
             {!!id && (
                 <div role="button"
                     className="h-full rounded-sm hover:bg-neutral-300
                     dark:hover:bg-neutral-600 mr-1"
-                    onClick={onExpand}>
+                    onClick={handleExpand}
+                >
                     <ChevronIcon
                         className="h-4 w-4 shrink-0 text-muted-foreground/50"
                     />
@@ -59,6 +68,19 @@ export const Item = (
                     <span className="text-xs">Ctrl+K</span>
                 </kbd>
             )}
+        </div>
+    );
+}
+
+Item.Skeleton = function ItemSkeleton ({ level = 0 }:{level?:number}) {
+    return (
+        <div style={{
+            paddingLeft: level? `${(level * 10) + 15}px`: "12px"
+            }}
+            className="flex gap-x-2 py-[3px]"
+        >
+            <Skeleton className="h-4 w-4"/>
+            <Skeleton className="h-4 w-[30%]"/>
         </div>
     );
 }
