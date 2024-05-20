@@ -9,18 +9,17 @@ import { useMediaQuery } from "usehooks-ts";
 import { useUser } from "@clerk/clerk-react";
 import Image from "next/image";
 import UserItem from "./user-item";
-import { useMutation, useQuery } from "convex/react";
+import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { Item } from "./item";
 import { toast } from "sonner";
+import { DocumentList } from "./documents-list";
 
 
 export const Navigation = () => {
     const pathname = usePathname();
     const isSmallScreen = useMediaQuery("(max-width: 768px)");
-    const documents = useQuery(api.documents.get);
     const create = useMutation(api.documents.create);
-
     const isResizingRef = useRef(false);
     const sidebarRef = useRef<ElementRef<"aside">>(null);
     const navbarRef = useRef<ElementRef<"div">>(null);
@@ -161,9 +160,7 @@ export const Navigation = () => {
                 />
                 </div>
                 <div className="p-4 pt-2">
-                    {documents?.map((document) => (
-                        <p key={document._id}>{document.title}</p>
-                    ))}
+                    <DocumentList />
                 </div>
                 <div
                     onMouseDown={handleMouseDown}
