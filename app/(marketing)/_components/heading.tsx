@@ -35,5 +35,4 @@ export const Heading = () =>{
         </div>
       </section>
     )
-
 }
