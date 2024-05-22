@@ -184,7 +184,7 @@ export const restore = mutation({
     }
 });
 
-export const removw = mutation({
+export const remove = mutation({
     args: { id : v.id("documents") },
     handler: async (ctx, args) => {
         const existingDocument = await ctx.db.get(args.id);
