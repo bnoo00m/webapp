@@ -3,10 +3,10 @@ import Image from "next/image";
 export const Body = () =>{
     return(
         <div className="space-y-4">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold">
                 Why choose us
             </h1>
-            <h3 className="text-sm sm:text-lg md:text-xl font-normal">
+            <h3 className="text-sm sm:text-lg md:text-xl font-normal text-muted-foreground dark:text-white">
                 By using Flowi you obtain true freedom. <br />
                 No ads, no limitations, free forever!
             </h3>

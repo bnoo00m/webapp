@@ -9,12 +9,12 @@ import Link from "next/link";
 export const Heading = () =>{
    const {isAuthenticated} = useConvexAuth();
    return(
-      <section className="section relative pt-28 md:pt-40">
+      <section className="section relative pt-28 md:pt-36">
         <div className="max-w-3xl space-y-4">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold">
                 Your ideas, documents and plans are unified.
             </h1>
-            <h3 className="text-sm sm:text-lg md:text-xl font-normal">
+            <h3 className="text-sm sm:text-lg md:text-xl font-normal text-muted-foreground dark:text-white">
                Flowi is a cloud workspace where <br />
                your ideas become action.
             </h3>
