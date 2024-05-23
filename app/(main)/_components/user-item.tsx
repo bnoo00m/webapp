@@ -4,7 +4,6 @@ import {
     Avatar,
     AvatarImage
 } from "@/components/ui/avatar";
-
 import{
     DropdownMenu,
     DropdownMenuContent,
@@ -14,10 +13,14 @@ import{
     DropdownMenuTrigger,
     DropdownMenuDestructiveItem,
 } from "@/components/ui/dropdown-menu";
+import { useSettings } from "@/hooks/settings";
 
 import { SignOutButton, useUser } from "@clerk/clerk-react";
-import { ChevronsLeftRight } from "lucide-react";
+import { ChevronsLeftRight, LogOut, LogOutIcon, Settings } from "lucide-react";
+import { Item } from "./item";
+import { Button } from "@/components/ui/button";
 const UserItem = () => {
+    const settings = useSettings();
     const {user} = useUser();
 
     return ( 
@@ -55,15 +58,17 @@ const UserItem = () => {
                     </div>
                 </div>
                 <DropdownMenuSeparator/>
-                <DropdownMenuItem className="text-muted-foreground">
-                    Add new account
-                </DropdownMenuItem>
-                <DropdownMenuItem className="text-muted-foreground">
-                    Settings
-                </DropdownMenuItem>
-                <DropdownMenuDestructiveItem className="text-muted-foreground ">
+                <div className="text-muted-foreground">
+                    <Item
+                        label="Settings"
+                        icon={Settings}
+                        onClick={settings.onOpen}
+                    />
+                </div>
+                <DropdownMenuDestructiveItem className="text-muted-foreground space-x-2.5">
+                    <LogOutIcon className="w-4 h-4"/>
                     <SignOutButton>
-                        Sign out
+                        <p className="font-medium">Sign out</p>
                     </SignOutButton>
                 </DropdownMenuDestructiveItem>
             </DropdownMenuContent>        
