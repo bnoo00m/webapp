@@ -5,16 +5,19 @@ import { Input } from "@/components/ui/input";
 import { Spinner } from "@/components/ui/spinner";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
+import { cn } from "@/lib/utils";
 import { useQuery,useMutation } from "convex/react";
 import { CircleX, Search, Undo2 } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
+import { useMediaQuery } from "usehooks-ts";
 
 
 
 const TrashBox = () => {
+    const isSmallScreen = useMediaQuery("(max-width: 768px)");
     const router = useRouter();
     const params = useParams();
     const documents = useQuery(api.documents.getTrash);
@@ -88,26 +91,45 @@ const TrashBox = () => {
                         key={document._id}
                         role="button"
                         onClick={() => onClick(document._id)}
-                        className="text-sm rounded-sm w-full hover:bg-primary/5 
+                        className="rounded-md w-full hover:bg-primary/5 
                         flex items-center text-primary justify-between">
-                        <span className="truncate pl-2">
+                        <span className="text-lg truncate pl-2">
                             {document.title}
                         </span>
-                        <div className="flex items-center justify-end gap-x-1">
-                            <div role="button"
-                                className="p-1 rounded-sm hover:bg-primary/5" 
-                                onClick={(e) => onRestore(e, document._id)}>
-                                <Undo2 className="h-4 w-4 text-muted-foreground"/>
-                            </div>
-                            <ConfirmModal onConfirm={() => onRemove(document._id)}>
+                        {isSmallScreen && 
+                            <div className="flex items-center justify-end gap-x-1 text-muted-foreground">
                                 <div role="button"
-                                    className="p-1 rounded-sm hover:bg-primary/5" 
-                                >
-                                    <CircleX className="h-4 w-4 text-muted-foreground 
-                                    hover:text-red-500"/>
+                                    className="p-1 rounded-sm hover:bg-primary/5 flex items-center gap-x-1"
+                                    onClick={(e) => onRestore(e, document._id)}>
+                                    <Undo2 className="h-3 w-3"/>
+                                    <p className="text-sm">Restore</p>
                                 </div>
-                            </ConfirmModal>
-                        </div>
+                                <ConfirmModal onConfirm={() => onRemove(document._id)}>
+                                    <div role="button"
+                                        className="p-1 rounded-sm hover:bg-primary/5 flex items-center gap-x-1 " 
+                                    >
+                                        <CircleX className="h-3 w-3"/>
+                                        <p className="text-sm">Remove</p>
+                                    </div>
+                                </ConfirmModal>
+                            </div>
+                        }
+                        {!isSmallScreen &&
+                            <div className="flex items-center justify-end gap-x-1">
+                                <div role="button"
+                                    className="p-1 rounded-sm hover:bg-primary/5"
+                                    onClick={(e) => onRestore(e, document._id)}>
+                                    <Undo2 className="h-4 w-4 text-muted-foreground"/>
+                                </div>
+                                <ConfirmModal onConfirm={() => onRemove(document._id)}>
+                                    <div role="button"
+                                        className="p-1 rounded-sm hover:bg-primary/5" 
+                                    >
+                                        <CircleX className="h-4 w-4 text-muted-foreground hover:text-red-500"/>
+                                    </div>
+                                </ConfirmModal>
+                            </div>
+                        }
                     </div>
                 ))}
             </div>
