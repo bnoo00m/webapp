@@ -65,10 +65,10 @@ const UserItem = () => {
                         onClick={settings.onOpen}
                     />
                 </div>
-                <DropdownMenuDestructiveItem className="text-muted-foreground space-x-2.5">
+                <DropdownMenuDestructiveItem className="text-muted-foreground space-x-3">
                     <LogOutIcon className="w-4 h-4"/>
                     <SignOutButton>
-                        <p className="font-medium">Sign out</p>
+                        <p className="text-sm font-medium w-full">Sign out</p>
                     </SignOutButton>
                 </DropdownMenuDestructiveItem>
             </DropdownMenuContent>        

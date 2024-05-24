@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Trash2 } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { ElementRef, useRef, useState, useEffect } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { useUser } from "@clerk/clerk-react";
@@ -17,15 +17,12 @@ import { DocumentList } from "./documents-list";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import TrashBox from "./trash-box";
 import { useSearch } from "@/hooks/search";
-
-
-
-
-
+import { Navbar } from "./navbar";
 
 export const Navigation = () => {
     const search = useSearch();
     const pathname = usePathname();
+    const params = useParams();
     const isSmallScreen = useMediaQuery("(max-width: 768px)");
     const create = useMutation(api.documents.create);
     const isResizingRef = useRef(false);
@@ -201,8 +198,8 @@ export const Navigation = () => {
                 )}
             >
                 <nav className="bg-transparent px-3 py-2 w-full">
-                    {isCollapsed && <MenuIcon onClick={resetWidth} role="button" 
-                    className="h-6 w-6 text-muted-foreground" />}
+                        {isCollapsed && <MenuIcon onClick={resetWidth} role="button"
+                        className="h-6 w-6 text-muted-foreground" />}
                 </nav>
             </div>
         </>
