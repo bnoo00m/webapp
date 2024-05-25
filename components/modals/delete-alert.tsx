@@ -10,6 +10,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { useMediaQuery } from "usehooks-ts";
 
 interface ConfirmModalProps {
     children: React.ReactNode;
@@ -26,6 +27,7 @@ export const ConfirmModal = ({
         e.stopPropagation();
         onConfirm();
     };
+    const isSmallScreen = useMediaQuery("(max-width: 768px)");
 
     return (
         <AlertDialog>
@@ -41,10 +43,21 @@ export const ConfirmModal = ({
                         This action cannot be undone.
                     </AlertDialogDescription>
                 </AlertDialogHeader>
-                <AlertDialogFooter>
-                    <AlertDialogCancel onClick={e => e.stopPropagation()}>Cancel</AlertDialogCancel>
-                    <AlertDialogAction onClick={handleConfirm}>Confirm</AlertDialogAction>
-                </AlertDialogFooter>
+                {!isSmallScreen &&(
+                    <AlertDialogFooter>
+                        <AlertDialogCancel onClick={e => e.stopPropagation()}>Cancel</AlertDialogCancel>
+                        <AlertDialogAction onClick={handleConfirm}>Confirm</AlertDialogAction>
+                    </AlertDialogFooter>
+                )}
+                {isSmallScreen &&(
+                    <div className="flex flex-col items-center w-full">
+                       <AlertDialogFooter>
+                        <AlertDialogCancel onClick={e => e.stopPropagation()}>Cancel</AlertDialogCancel>
+                        <AlertDialogAction onClick={handleConfirm}>Confirm</AlertDialogAction>
+                    </AlertDialogFooter> 
+                    </div>
+                    
+                )}
             </AlertDialogContent>
         </AlertDialog>
     )

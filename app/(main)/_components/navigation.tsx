@@ -46,6 +46,7 @@ export const Navigation = () => {
             collapse();
         }
     }, [pathname, isSmallScreen]);
+
     const handleMouseDown = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>
     ) => {
@@ -94,6 +95,7 @@ export const Navigation = () => {
 
     const collapse = () => {
         if (sidebarRef.current && navbarRef.current) {
+
             setIsCollapsed(true);
             setIsResetting(true);
             sidebarRef.current.style.width = "0";
@@ -119,7 +121,6 @@ export const Navigation = () => {
     };
 
     return (
-
         <>
             <aside
                 ref={sidebarRef}
@@ -148,7 +149,6 @@ export const Navigation = () => {
                 >
                     <ChevronsLeft />
                 </div>
-                
                 <div className="p-2 pb-2">
                     <UserItem />
                     <Item
@@ -191,7 +191,7 @@ export const Navigation = () => {
             <div
                 ref={navbarRef}
                 className={cn(
-                    "absolute top-0 z-[999999] left-60 w-[calc(100%-240px)]",
+                    "absolute top-0 z-[99999] left-60 w-[calc(100%-240px)]",
                     isResetting && "transition-all ease-in-out duration-300",
                     isSmallScreen && "left-0 w-full"
                 )}

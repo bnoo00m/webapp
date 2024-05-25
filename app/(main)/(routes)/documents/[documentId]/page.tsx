@@ -30,9 +30,9 @@ const DocumentIdPage = ({
     }
 
     return ( 
-        <div className="h-full flex flex-col items-center justify-center">
-            <div className="h-[35vh]"/>
-            <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
+        <div className="flex flex-col justify-start">
+            <div className="h-[25vh]"/>
+            <div className="md:max-w-3xl lg:max-w-4xl ">
                 <Toolbar initialData={document}/>
             </div>  
         </div>
