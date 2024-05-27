@@ -32,7 +32,7 @@ const DocumentsPage = () => {
                 width="300"
                 height="300"
             />
-            <h2 className="text-lg font-bold">Shoot... {user?.firstName }, it's empty here.</h2>
+            <h2 className="text-lg font-bold">Shoot... {user?.firstName }, it&apos;s empty here.</h2>
             <p className="text-sm">Create a document to get started.</p>
             <Button onClick={onCreate} size="default" className="w-28 h-9">
                 <PlusCircle className="h-4 w-4 mr-2"/>
