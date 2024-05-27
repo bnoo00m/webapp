@@ -15,7 +15,7 @@ export const Navbar = () => {
     const scrolled = useScrollTop();
     return(
         <div className={cn(
-            "z-[99999] bg-[#F9F6F2] dark:bg-[#1F1F1F] fixed top-0 flex items-center w-full p-4",
+            "bg-[#F9F6F2] dark:bg-[#1F1F1F] fixed top-0 flex items-center w-full p-4",
             scrolled && "border-b shadow-sm"
         )}>
             <div className="px-4">

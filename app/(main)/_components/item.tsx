@@ -147,13 +147,6 @@ export const Item = (
                             forceMount
                         >
                             <DropdownMenuItem
-                                onClick={() => router.push(`/documents/${id}`)}
-                            >
-                                <PencilLine className="w-4 h-4 mr-2"/>
-                                Rename
-                            </DropdownMenuItem>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem
                                 onClick={onArchive}
                             >
                                 <Trash2 className="w-4 h-4 mr-2"/>

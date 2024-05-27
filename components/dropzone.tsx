@@ -153,7 +153,7 @@ const SingleImageDropzone = React.forwardRef<HTMLInputElement, InputProps>(
                 <div className="text-gray-400">
                     Click or drag file
                 </div>
-              
+              <p className="mt-2">Images wider than 1500px work best </p>
             </div>
           )}
 

@@ -5,6 +5,7 @@ import { useQuery } from "convex/react";
 import { Id } from "@/convex/_generated/dataModel";
 import { Divide } from "lucide-react";
 import { Toolbar } from "@/components/toolbar";
+import { Cover } from "@/components/cover";
 
 interface DocumentIdPageProps {
     params: {
@@ -30,8 +31,8 @@ const DocumentIdPage = ({
     }
 
     return ( 
-        <div className="flex flex-col justify-start">
-            <div className="h-[25vh]"/>
+        <div className="pb-40">
+            <Cover url={document.coverImage}/>
             <div className="md:max-w-3xl lg:max-w-4xl ">
                 <Toolbar initialData={document}/>
             </div>  
