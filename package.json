@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@blocknote/core": "^0.13.4",
+    "@blocknote/mantine": "^0.13.4",
+    "@blocknote/react": "^0.13.4",
     "@clerk/clerk-react": "^5.1.0",
     "@clerk/nextjs": "^5.0.12",
     "@edgestore/react": "^0.1.6",
@@ -20,6 +23,9 @@
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-slot": "^1.0.2",
+    "@tiptap/pm": "^2.4.0",
+    "@tiptap/react": "^2.4.0",
+    "@tiptap/starter-kit": "^2.4.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",

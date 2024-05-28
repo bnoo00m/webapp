@@ -72,7 +72,7 @@ export const Toolbar = ({
     };
 
     return (
-        <div className=" pl-[54px] group relative">
+        <div className="group relative pl-[54px]">
             {!!initialData.icon && !preview && (
                 <div className="flex items-center gap-x-2 group/icon pt-6">
                     <IconPicker asChild onChange={onIconSelect}>
@@ -97,11 +97,11 @@ export const Toolbar = ({
                 </p>                
             )}
             <div className="opacity-0 group-hover:opacity-100 flex items-center
-                gap-x-1 py-4">
+                gap-x-1 py-2">
                     {!initialData.icon && !preview && (
                         <IconPicker asChild onChange={onIconSelect}>
-                            <Button className="text-muted-foreground text-xs w-28"
-                                variant="outline"
+                            <Button className="text-muted-foreground text-sm w-28"
+                                variant="ghost"
                                 size="sm"    
                             >
                                 <Smile className="w-4 h-4 mr-2"/>
@@ -112,8 +112,8 @@ export const Toolbar = ({
                     {!initialData.coverImage && !preview && (
                         <Button
                             onClick={coverImage.onOpen}
-                            className="text-muted-foreground text-xs w-28"
-                            variant="outline"
+                            className="text-muted-foreground text-sm w-28"
+                            variant="ghost"
                             size="sm"
                         >
                             <ImageIcon className="w-4 h-4 mr-2"/>
@@ -121,6 +121,7 @@ export const Toolbar = ({
                         </Button>
                     )}
             </div>
+            
             {isEdititng && !preview ? (
                 <TextareaAutosize
                 ref={inputRef}
