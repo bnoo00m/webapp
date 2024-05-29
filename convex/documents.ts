@@ -349,33 +349,30 @@ export const removeCoverImage = mutation({
 });
 
 export const saveEditorContent = mutation({
-    args: { 
+    args: {
         id: v.id("documents"),
         content: v.string(),
     },
     handler: async (ctx, args) => {
         const identity = await ctx.auth.getUserIdentity();
-
-        if(!identity) {
+        if (!identity) {
             throw new Error("Unauthorized");
         }
 
         const userId = identity.subject;
-
         const existingDocument = await ctx.db.get(args.id);
-
-        if(!existingDocument) {
+        if (!existingDocument) {
             throw new Error("Document not found");
         }
 
-        if(existingDocument.userId !== userId) {
+        if (existingDocument.userId !== userId) {
             throw new Error("Unauthorized");
         }
 
         const document = await ctx.db.patch(args.id, {
-            coverImage: undefined
+            content: args.content,
         });
 
         return document;
     },
-  });
+});

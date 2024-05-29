@@ -23,12 +23,14 @@ const DocumentIdPage = ({
     const document = useQuery(api.documents.getById, {
         documentId: params.documentId
     });
+    const saveContent = useMutation(api.documents.saveEditorContent);
+
     const update = useMutation(api.documents.update);
     const onChange = (content: string) => {
-        update({
+        saveContent({
             id: params.documentId,
             content
-        })
+        });
     }
 
     if(document === undefined) {
