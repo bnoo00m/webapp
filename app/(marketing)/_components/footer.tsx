@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 
 export const Footer = () =>{
@@ -7,10 +8,10 @@ export const Footer = () =>{
             <div className="md:ml-auto w-full justify-between
             md:justify-end flex items-center gap-x-6 text-muted-foreground">
                 <Button variant="link">
-                    Privacy Policy
+                    <Link href="/privacy">Privacy Policy</Link>
                 </Button>
                 <Button variant="link">
-                    Terms & Conditions
+                    <Link href="/terms">Terms & Conditions</Link>
                 </Button>
             </div>
         </div>
