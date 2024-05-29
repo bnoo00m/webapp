@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Trash2 } from "lucide-react";
-import { useParams, usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { ElementRef, useRef, useState, useEffect } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { useUser } from "@clerk/clerk-react";
@@ -18,8 +18,10 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import TrashBox from "./trash-box";
 import { useSearch } from "@/hooks/search";
 import { Navbar } from "./navbar";
+import { Router } from "next/router";
 
 export const Navigation = () => {
+    const router = useRouter();
     const search = useSearch();
     const pathname = usePathname();
     const params = useParams();
@@ -112,6 +114,7 @@ export const Navigation = () => {
         const promise = create({
             title: "Untitled",
         })
+            .then((documentId) => router.push(`/documents/${documentId}`))
 
         toast.promise(promise, {
             loading: "Creating a page...",

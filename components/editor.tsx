@@ -1,29 +1,51 @@
 "use client";
 
-import { PartialBlock } from "@blocknote/core";
+import { BlockNoteEditor, PartialBlock } from "@blocknote/core";
 import "@blocknote/core/fonts/inter.css";
 import { BlockNoteView } from "@blocknote/mantine";
 import "@blocknote/mantine/style.css";
-import { useCreateBlockNote } from "@blocknote/react";
+import { SideMenu, SideMenuController, useCreateBlockNote, DragHandleButton } from "@blocknote/react";
+import { RemoveBlockButton } from "./ui/removebutton";
 import { useTheme } from "next-themes";
+import { useEdgeStore } from "@/lib/edgestore";
 
 interface EditorProps {
   initialContent?: string
   onChange: (value: string) => void
-  editable?: boolean
 }
-const Editor = ({initialContent, onChange, editable = true}: EditorProps) => {
-  // Creates a new editor instance.
+const Editor = ({initialContent, onChange}: EditorProps) => {
   const {resolvedTheme} = useTheme();
+  const {edgestore} = useEdgeStore();
+
+  const handleUpload = async (file: File) => {
+    const response = await edgestore.publicFiles.upload({file});
+
+    return response.url;
+  }
+
   const editor = useCreateBlockNote({
-    initialContent: initialContent? 
-      JSON.parse(initialContent) as PartialBlock[]
-      : undefined,
+    initialContent: initialContent?JSON.parse(initialContent) as PartialBlock[]: undefined,
+    
+    /*onEditorContentChange: (editor: BlockNoteEditor) => {
+      onChange (JSON.stringify(editor.document, null, 2));
+    },*/
+    uploadFile: handleUpload
   });
+
  
   // Renders the editor instance.
   return (
-    <BlockNoteView editor={editor} formattingToolbar={false} theme= {resolvedTheme === "dark" ? "dark" : "light"}/>
+    <BlockNoteView editor={editor} formattingToolbar={false} theme= {resolvedTheme === "dark" ? "dark" : "light"} sideMenu={false}>
+      <SideMenuController
+        sideMenu={(props) => (
+          <SideMenu {...props}>
+            {/* Button which removes the hovered block. */}
+            <RemoveBlockButton {...props} />
+            <DragHandleButton {...props} />
+          </SideMenu>
+        )}
+      />
+    </BlockNoteView>
       
   );
 }
