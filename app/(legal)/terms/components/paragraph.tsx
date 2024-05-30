@@ -3,8 +3,8 @@ const Paragraph = () => {
         <div className="text-lg pt-10 text-justify space-y-6">
             <div>
                 <h3 className="text-lg font-semibold">1. Introduction</h3>
-                <p>Welcome to Flowi ("we," "our," or "us"). These Terms and Conditions ("Terms") govern your access 
-                    to and use of our productivity web application ("Flowi" or "the App"). <br /><br />
+                <p>Welcome to Flowi (&quot;we&quot;, &quot;our&quot; or &quot;us&quot;). These Terms and Conditions (&quot;Terms&quot;) govern your access
+                    to and use of our productivity web application (&quot;Flowi&quot; or &quot;the App&quot;). <br /><br />
                     By accessing or using Flowi, you agree to be bound by these Terms. If you do not agree to these Terms, 
                     do not use Flowi.
                 </p>
@@ -31,7 +31,7 @@ const Paragraph = () => {
             <div>
                 <h3 className="text-lg font-semibold">3. Content</h3>
                 <p>Your Content: You retain ownership of any content you submit, post, or display on or through Flowi 
-                    ("User Content"). By submitting User Content, you grant us a non-exclusive, 
+                    ("&quot;User Content&quot;). By submitting User Content, you grant us a non-exclusive,
                     worldwide, royalty-free license to use, copy, modify, create derivative works based on, distribute, publicly display,
                     and otherwise exploit your User Content in connection with operating and providing Flowi. <br /><br />
                     Our Content: Flowi and its entire contents, features, and functionality (including but not limited to all information,

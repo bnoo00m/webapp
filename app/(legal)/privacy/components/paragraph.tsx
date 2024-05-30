@@ -5,9 +5,9 @@ const Paragraph = () => {
         <div className="text-lg pt-10 text-justify space-y-6">
             <div>
                 <h3 className="text-lg font-semibold">1. Introduction</h3>
-                <p>Flowi ("we," "our," or "us") is committed to protecting your privacy. <br /><br />
+                <p>Flowi (&quot;we,&quot; &quot;our&quot; or &quot;us&quot;) is committed to protecting your privacy. <br /><br />
                      This Privacy Policy explains how we collect, use, disclose, and safeguard your information when 
-                    you use our productivity web application ("Flowi" or "the App"). By accessing or using Flowi, 
+                    you use our productivity web application (&quot;Flowi&quot; or &quot;the App&quot;). By accessing or using Flowi,
                     you agree to the terms and conditions of this Privacy Policy.
                 </p>
             </div>
@@ -58,7 +58,7 @@ const Paragraph = () => {
                 <p>
                     We may update this Privacy Policy from time to time in order to reflect changes to our practices or 
                     for other operational, legal, or regulatory reasons. <br /><br /> We will notify you of any changes by 
-                    posting the new Privacy Policy on this page and updating the "Last Updated" date.
+                    posting the new Privacy Policy on this page and updating the &quot;Last Updated&quot; date.
                 </p>
             </div>
             <div>
