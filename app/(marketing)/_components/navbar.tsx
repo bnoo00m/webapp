@@ -19,7 +19,7 @@ export const Navbar = () => {
             scrolled && "border-b shadow-sm "
         )}>
             <div className="px-4">
-                <Link href="/"><Logo /></Link>
+                <Link href="/"><Logo/></Link>
             </div>
             <div className="md:ml-auto md:justify-end justify-between w-full
             flex items-center gap-x-4">
