@@ -31,7 +31,7 @@ const Paragraph = () => {
             <div>
                 <h3 className="text-lg font-semibold">3. Content</h3>
                 <p>Your Content: You retain ownership of any content you submit, post, or display on or through Flowi 
-                    ("&quot;User Content&quot;). By submitting User Content, you grant us a non-exclusive,
+                    (&quot;User Content&quot;). By submitting User Content, you grant us a non-exclusive,
                     worldwide, royalty-free license to use, copy, modify, create derivative works based on, distribute, publicly display,
                     and otherwise exploit your User Content in connection with operating and providing Flowi. <br /><br />
                     Our Content: Flowi and its entire contents, features, and functionality (including but not limited to all information,
